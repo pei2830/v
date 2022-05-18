@@ -1,17 +1,24 @@
 #include <stdio.h>
-int a[10]={3,0,1,8,7,2,5,4,6,9};
+#include <vector>
+#include <algorithm>
+class Student{
+public:
+ char name[30];
+ int grade;
+};
+bool compare( Student a, Student b ){
+ return a.grade > b.grade ;
+}
 int main()
 {
-    for(int i=0;i<10;i++) printf("%d ",a[i]);
-    printf("\n");
-
-    for(int i=0;i<10-1;i++){
-        if(a[i]>a[i+1]){
-            int temp=a[i];
-            a[i]=a[i+1];
-            a[i+1]=temp;
-        }
-    }
-    for(int i=0;i<10;i++) printf("%d ",a[i]);
-    printf("\n");
+ int N;
+ scanf("%d", &N);
+ std::vector<Student>stu(N);
+ for(int i=0; i<N; i++){
+  scanf("%s %d", stu[i].name,&stu[i].grade);
+ }
+ std::stable_sort(stu.begin(),stu.end(),compare);
+ for(int i=0;i<N;i++){
+  printf("%s %d\n",stu[i].name,stu[i].grade);
+ }
 }

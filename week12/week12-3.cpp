@@ -1,21 +1,24 @@
-#include <stdio.h>
-int a[10]={3,0,1,8,7,2,5,4,6,9};
+#include <iostream>
+class student{
+public:
+	char name[30];
+	int grade;
+};
+
+student stu[100];
 int main()
 {
-    for(int i=0;i<10;i++) printf("%d ",a[i]);
-    printf("\n");
+	int N;
+	std::cin >> N;
+	for(int i=0;i<N;i++){
+	std::cin >> stu[i].name;
+	std::cin >> stu[i].grade;
+	}
 
-    for(int i=0;i<10;i++){
-        for(int j=i+1;j<10;j++){
+	for(int i=0;i<N;i++){
+		std::cout << stu[i].name << " ";
+		std::cout << stu[i].grade << "\n";
+	}
 
-            if(a[i]>a[j]){
-                int temp=a[i];
-                a[i]=a[j];
-                a[j]=temp;
-            }
-        }
-    }
-    for(int i=0;i<10;i++) printf("%d ",a[i]);
-    printf("\n");
+	return 0;
 }
-
