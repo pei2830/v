@@ -1,0 +1,4 @@
+size(1920,1908);
+PImage img = loadImage("v.jpg");
+image( img, 0, 0);
+image( img, 0, 0, 1920/2, 1908/2);
